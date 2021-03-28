@@ -1,6 +1,10 @@
 # social-media-app
 
-# Config:
-{
-    change the MONGODB_URL with the DB URL you are trying
-}
+# GraphQL for the app hosted on
+
+# Server: Apollo-server
+
+# Database: MONGODB
+
+https://epic-archimedes-5efd79.netlify.app/
+
