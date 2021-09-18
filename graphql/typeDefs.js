@@ -36,9 +36,17 @@ module.exports = gql`
         createdAt: String!
 
     }
+    type Chat{
+        id: ID!
+        createdAt: String!
+        sender: String!
+        receiver: String!
+        message: String!
+    }
     type Query{
         getPosts: [Post],
-        getPost(postId: ID!): Post!
+        getPost(postId: ID!): Post!,
+        getMessages(sendername: String!, inverse: Boolean!): [Chat]
     }
     type Mutation{
         register(registerInput: RegisterInput) : User!,
@@ -48,8 +56,10 @@ module.exports = gql`
         createComment(postId: ID! , body: String!): Post!
         deleteComment(postId: ID!, commentId: ID!): Post!
         likePost(postId: ID!): Post!
+        createMessage(message: String!,receivername: String! ): Chat!
     }
     type Subscription{
-        newPost: Post!
+        newPost: Post!,
+        newMessage(receivername: String!): Chat!
     }
 `
